@@ -1,5 +1,6 @@
 
 import "./App.css";
+import DashboardCard from "./components/DashboardCard";
 
 function App() {
   return (
@@ -12,27 +13,33 @@ function App() {
 
       <section className="dashboard">
 
-        <div className="card">
-          <h3>Total Stock</h3>
-          <h2>120</h2>
-          <p>Units available</p>
-        </div>
+        <DashboardCard
+          title="Total Stock"
+          value={105}
+          description="Units available"
+        />
 
-        <div className="card">
-          <h3>Total Products</h3>
-          <h2>7</h2>
-          <p>Active products</p>
-        </div>
+        <DashboardCard
+          title="Total Products"
+          value={6}
+          description="Active products"
+        />
 
-        <div className="card">
-          <h3>Total Sales</h3>
-          <h2>52</h2>
-          <p>Units sold today</p>
-        </div>
+        <DashboardCard
+          title="Total Sales"
+          value={52}
+          description="Units sold today"
+        />
+
+        <DashboardCard
+          title="Low Stock Items"
+          value={2}
+          description="Products need attention"
+        />
 
       </section>
 
-    </div>
+    </div >
   );
 }
 

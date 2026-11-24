@@ -1,21 +1,27 @@
 
+import { useState } from "react";
 import "./App.css";
 import DashboardCard from "./components/DashboardCard";
 
 function App() {
+  const [totalSales, setTotalSales] = useState(52);
+  const [totalStock, setTotalStock] = useState(105);
+
+  function handleStockUpdate() {
+    setTotalStock(prev => prev - 1);
+  }
+
   return (
     <div className="container">
-
       <header className="header">
-        <h1>SmartStock - Live Operation</h1>
+        <h1>SmartStock</h1>
         <p>Restaurant Inventory Management</p>
       </header>
 
       <section className="dashboard">
-
         <DashboardCard
           title="Total Stock"
-          value={105}
+          value={totalStock}
           description="Units available"
         />
 
@@ -27,7 +33,7 @@ function App() {
 
         <DashboardCard
           title="Total Sales"
-          value={52}
+          value={totalSales}
           description="Units sold today"
         />
 
@@ -36,10 +42,15 @@ function App() {
           value={2}
           description="Products need attention"
         />
-
       </section>
 
-    </div >
+      <button onClick={() => setTotalSales(totalSales + 1)}>
+        Record 1 Sale
+      </button>
+      <button onClick={handleStockUpdate}>
+        Record 1 stock
+      </button>
+    </div>
   );
 }
 
